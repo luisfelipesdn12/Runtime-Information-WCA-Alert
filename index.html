@@ -8,6 +8,29 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <script>
+        function setFetchingMessage() {
+            
+            if (document.getElementById("emails").innerHTML == "") {
+
+                document.getElementById("emails")
+                    .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
+
+                document.getElementById("users")
+                    .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
+
+                document.getElementById("requests")
+                    .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
+
+                document.getElementById("runtime")
+                    .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
+                
+                document.getElementById("start")
+                    .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
+            }
+        }
+    </script>
+
     <style>
         html, body {
             background-color: #FFF7E8;
@@ -67,7 +90,7 @@
         <div class="card text-white bg-info mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Emails</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="emails">Fetching... <small>If it takes longer, refresh the page.</small></h5>
+                <h5 class="card-title"><p id="emails"></h5>
                 <p class="card-text">The people who has been notified because we've identified changes in the competitions number from the last verification.</p>
             </div>
         </div>
@@ -76,7 +99,7 @@
         <div class="card text-white bg-success mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Users</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="users">Fetching... <small>If it takes longer, refresh the page.</small></h5>
+                <h5 class="card-title"><p id="users"></h5>
                 <p class="card-text">The number of users who we've checked the city.</p>
             </div>
         </div>
@@ -85,7 +108,7 @@
         <div class="card text-white bg-dark mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Requests</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="requests">Fetching... <small>If it takes longer, refresh the page.</small></h5>
+                <h5 class="card-title"><p id="requests"></h5>
                 <p class="card-text">The number of requests to the WCA API witch were necessaries to check the users city.</p>
             </div>
         </div>
@@ -94,7 +117,7 @@
         <div class="card bg-light mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Runtime</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="runtime">Fetching... <small>If it takes longer, refresh the page.</small></h5>
+                <h5 class="card-title"><p id="runtime"></h5>
                 <p class="card-text">The duration of the verifications and other program operations in the last runtime.</p>
             </div>
         </div>
@@ -103,7 +126,7 @@
         <div class="alert alert-warning" role="alert" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             That information is referring to runtime witch started at:
             <hr>
-            <p id="start">Fetching... <small>If it takes longer, refresh the page.</small>
+            <p id="start">
         </div>
     </div>
 
@@ -114,6 +137,8 @@
     </footer>
     
     <script>
+        window.setTimeout(setFetchingMessage, 1500);
+
         fetch("https://gist.githubusercontent.com/luisfelipesdn12/1be498aa8a48b911f64276343511f541/raw/resume.json")
         .then(response => response.json())
         .then(resJson => {
