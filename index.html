@@ -12,58 +12,99 @@
         html, body {
             background-color: #FFF7E8;
         }
+
+        @media (min-width: 1000px) {
+            .bg-info {
+                grid-row: 1;
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            .bg-success {
+                grid-row: 1;
+                grid-column-start: 3;
+                grid-column-end: 5;
+            }
+
+            .bg-dark {
+                grid-row: 2;
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            .bg-light {
+                grid-row: 2;
+                grid-column-start: 3;
+                grid-column-end: 5;
+            }
+
+            .alert-warning {
+                grid-row: 3;
+                grid-column-start: 2;
+                grid-column-end: 4;
+            }
+
+            #information {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+        }
     </style>
 
     <title>WCA-Alert Infos</title>
 </head>
 <body>
-    <!-- Header -->
-    <img src="https://raw.githubusercontent.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA/master/images/Email%20Header%20English.png" class="img-fluid" alt="Project header" style="margin-bottom: 1%;">
-
+    <header>
+        <!-- Header image -->
+        <img src="https://raw.githubusercontent.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA/master/images/Email%20Header%20English.png" class="img-fluid" alt="Project header" style="margin-bottom: 1%;">
+    </header>
 
     <h2 class="text-center" style="margin-bottom: 2%; margin-top: 2%;">Runtime information</h2>
 
-    <!-- Emails card -->
-    <div class="card text-white bg-info mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
-        <div class="card-header">Emails</div>
-        <div class="card-body">
-            <h5 class="card-title"><p id="emails"></h5>
-            <p class="card-text">The people who has been notified because we've identified changes in the competitions number from the last verification.</p>
+    <div id="information">
+        <!-- Emails card -->
+        <div class="card text-white bg-info mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
+            <div class="card-header">Emails</div>
+            <div class="card-body">
+                <h5 class="card-title"><p id="emails"></h5>
+                <p class="card-text">The people who has been notified because we've identified changes in the competitions number from the last verification.</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Users card -->
-    <div class="card text-white bg-success mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
-        <div class="card-header">Users</div>
-        <div class="card-body">
-            <h5 class="card-title"><p id="users"></h5>
-            <p class="card-text">The number of users who we've checked the city.</p>
+        <!-- Users card -->
+        <div class="card text-white bg-success mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
+            <div class="card-header">Users</div>
+            <div class="card-body">
+                <h5 class="card-title"><p id="users"></h5>
+                <p class="card-text">The number of users who we've checked the city.</p>
+            </div>
         </div>
-    </div>
-    
-    <!-- Requests card -->
-    <div class="card text-white bg-dark mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
-        <div class="card-header">Requests</div>
-        <div class="card-body">
-            <h5 class="card-title"><p id="requests"></h5>
-            <p class="card-text">The number of requests to the WCA API witch were necessaries to check the users city.</p>
+        
+        <!-- Requests card -->
+        <div class="card text-white bg-dark mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
+            <div class="card-header">Requests</div>
+            <div class="card-body">
+                <h5 class="card-title"><p id="requests"></h5>
+                <p class="card-text">The number of requests to the WCA API witch were necessaries to check the users city.</p>
+            </div>
         </div>
-    </div>
-    
-    <!-- Runtime card -->
-    <div class="card bg-light mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
-        <div class="card-header">Runtime</div>
-        <div class="card-body">
-            <h5 class="card-title"><p id="runtime"></h5>
-            <p class="card-text">The duration of the verifications and other program operations in the last runtime.</p>
+        
+        <!-- Runtime card -->
+        <div class="card bg-light mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
+            <div class="card-header">Runtime</div>
+            <div class="card-body">
+                <h5 class="card-title"><p id="runtime"></h5>
+                <p class="card-text">The duration of the verifications and other program operations in the last runtime.</p>
+            </div>
         </div>
-    </div>
-    
-    <!-- Start at card -->
-    <div class="alert alert-warning" role="alert" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
-        That information is referring to runtime witch started at:
-        <hr>
-        <p id="start">
+        
+        <!-- Start at card -->
+        <div class="alert alert-warning" role="alert" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
+            That information is referring to runtime witch started at:
+            <hr>
+            <p id="start">
+        </div>
     </div>
 
     <hr>
