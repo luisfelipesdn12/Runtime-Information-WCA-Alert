@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -6,7 +7,8 @@
     <link rel="icon" href="./favicon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script>
         function setFetchingMessage() {
@@ -24,7 +26,7 @@
 
                 document.getElementById("runtime")
                     .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
-                
+
                 document.getElementById("start")
                     .innerHTML = "Fetching... <small>If it takes longer, refresh the page.</small>";
             }
@@ -32,7 +34,8 @@
     </script>
 
     <style>
-        html, body {
+        html,
+        body {
             background-color: #FFF7E8;
         }
 
@@ -77,10 +80,12 @@
 
     <title>WCA-Alert Infos</title>
 </head>
+
 <body>
     <header>
         <!-- Header image -->
-        <img src="https://raw.githubusercontent.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA/master/images/Email%20Header%20English.png" class="img-fluid" alt="Project header" style="margin-bottom: 1%;">
+        <img src="https://raw.githubusercontent.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA/master/images/Email%20Header%20English.png"
+            class="img-fluid" alt="Project header" style="margin-bottom: 1%;">
     </header>
 
     <h2 class="text-center" style="margin-bottom: 2%; margin-top: 2%;">Runtime information</h2>
@@ -90,8 +95,11 @@
         <div class="card text-white bg-info mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Emails</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="emails"></h5>
-                <p class="card-text">The people who has been notified because we've identified changes in the competitions number from the last verification.</p>
+                <h5 class="card-title">
+                    <p id="emails">
+                </h5>
+                <p class="card-text">The people who has been notified because we've identified changes in the
+                    competitions number from the last verification.</p>
             </div>
         </div>
 
@@ -99,29 +107,37 @@
         <div class="card text-white bg-success mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Users</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="users"></h5>
+                <h5 class="card-title">
+                    <p id="users">
+                </h5>
                 <p class="card-text">The number of users who we've checked the city.</p>
             </div>
         </div>
-        
+
         <!-- Requests card -->
         <div class="card text-white bg-dark mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Requests</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="requests"></h5>
-                <p class="card-text">The number of requests to the WCA API witch were necessaries to check the users city.</p>
+                <h5 class="card-title">
+                    <p id="requests">
+                </h5>
+                <p class="card-text">The number of requests to the WCA API witch were necessaries to check the users
+                    city.</p>
             </div>
         </div>
-        
+
         <!-- Runtime card -->
         <div class="card bg-light mb-3" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             <div class="card-header">Runtime</div>
             <div class="card-body">
-                <h5 class="card-title"><p id="runtime"></h5>
-                <p class="card-text">The duration of the verifications and other program operations in the last runtime.</p>
+                <h5 class="card-title">
+                    <p id="runtime">
+                </h5>
+                <p class="card-text">The duration of the verifications and other program operations in the last runtime.
+                </p>
             </div>
         </div>
-        
+
         <!-- Start at card -->
         <div class="alert alert-warning" role="alert" style="margin-block: 1%; margin-right: 2%; margin-left: 2%;">
             That information is referring to runtime witch started at:
@@ -132,23 +148,26 @@
 
     <hr>
     <footer>
-        <p class="text-center" style="margin-right: 1%; margin-left: 1%;">Alerta-de-Campeonatos-WCA is a script witch send an email when there's a new WCA competition.</p>
-        <p class="text-center" style="margin-right: 1%; margin-left: 1%;">Know more in the <a href="https://github.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA">GitHub repository</a>.</p>
+        <p class="text-center" style="margin-right: 1%; margin-left: 1%;">Alerta-de-Campeonatos-WCA is a script witch
+            send an email when there's a new WCA competition.</p>
+        <p class="text-center" style="margin-right: 1%; margin-left: 1%;">Know more in the <a
+                href="https://github.com/luisfelipesdn12/Alerta-de-Campeonatos-WCA">GitHub repository</a>.</p>
     </footer>
-    
+
     <script>
         window.setTimeout(setFetchingMessage, 1500);
 
         fetch("https://gist.githubusercontent.com/luisfelipesdn12/1be498aa8a48b911f64276343511f541/raw/resume.json")
-        .then(response => response.json())
-        .then(resJson => {
-            document.getElementById("users").innerHTML = resJson.UsersChecked + " users checked";
-            document.getElementById("emails").innerHTML = resJson.EmailsSended + " emails sended";
-            document.getElementById("requests").innerHTML = resJson.RequestsSended + " requests sended";
-            document.getElementById("start").innerHTML = resJson.StartIn.substring(0, 19);
-            document.getElementById("runtime").innerHTML = resJson.RuntimeDuration + " were spend";
-        })
-        .catch(err => console.log("An error occurs while we\'re trying to use the GitHub API.", err));
+            .then(response => response.json())
+            .then(resJson => {
+                document.getElementById("users").innerHTML = resJson.UsersChecked + " users checked";
+                document.getElementById("emails").innerHTML = resJson.EmailsSended + " emails sended";
+                document.getElementById("requests").innerHTML = resJson.RequestsSended + " requests sended";
+                document.getElementById("start").innerHTML = new Date(Date.parse(resJson.StartIn.substring(0, 19) + " UTC"));
+                document.getElementById("runtime").innerHTML = resJson.RuntimeDuration + " were spend";
+            })
+            .catch(err => console.log("An error occurs while we\'re trying to use the GitHub API.", err));
     </script>
 </body>
+
 </html>
